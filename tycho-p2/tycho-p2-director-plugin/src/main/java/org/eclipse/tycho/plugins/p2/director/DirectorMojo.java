@@ -77,6 +77,24 @@ public final class DirectorMojo extends AbstractProductMojo {
                 if (!DirectorApplicationWrapper.EXIT_OK.equals(result)) {
                     throw new MojoFailureException("P2 director return code was " + result);
                 }
+
+                /*
+                 * Install the rest of the product associated UIs (if they have been specified)
+                 */
+                List<IU> includes = product.getIncludes();
+                if (includes != null) {
+                    for (IU iu : includes) {
+                        args = new String[] { "-repository", artifactRepositoryURLs, "-installIU", iu.getId(),
+                                "-destination", destination.getAbsolutePath(), "-profile",
+                                ProfileName.getNameForEnvironment(env, profileNames, profile) };
+                        Object iuResult = director.run(args);
+                        if (!DirectorApplicationWrapper.EXIT_OK.equals(iuResult)) {
+                            throw new MojoFailureException("Error installing the following root UI: " + iu.getId()
+                                    + " P2 director return code was " + iuResult);
+                        }
+                    }
+                }
+
             }
         }
     }

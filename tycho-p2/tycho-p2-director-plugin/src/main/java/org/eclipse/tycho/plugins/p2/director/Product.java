@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.tycho.plugins.p2.director;
 
+import java.util.List;
+
 /**
  * Value object for the configuration of this Maven plug-in. Used to select products to be
  * materialized and to specify the classifier under which the product archives artifacts are
@@ -34,6 +36,11 @@ public final class Product {
      */
     private String rootFolder;
 
+    /**
+     * IUs to add after the first director call.
+     */
+    private List<IU> includes;
+
     public Product() {
     }
 
@@ -46,6 +53,11 @@ public final class Product {
         this.attachId = attachId;
     }
 
+    Product(String id, String attachId, List<IU> includes) {
+        this(id, attachId);
+        this.includes = includes;
+    }
+
     public String getId() {
         return id;
     }
@@ -56,6 +68,11 @@ public final class Product {
 
     public String getRootFolder() {
         return rootFolder;
+    }
+
+    public List<IU> getIncludes()
+    {
+        return includes;
     }
 
     @Override

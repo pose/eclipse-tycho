@@ -98,6 +98,26 @@ public class ProductConfigTest {
     }
 
     @Test
+    public void testProductIUs() throws Exception {
+        new File(tempDir, "product.id.1").mkdirs();
+        new File(tempDir, "product.id.2").mkdirs();
+        new File(tempDir, "product.id.3").mkdirs();
+        List<Product> userConfig = Arrays.asList(new Product("product.id.2"), new Product("product.id.3", "extra",
+                Arrays.asList(new IU("product.id.4", "1.2.3"))));
+
+        subject = new ProductConfig(userConfig, tempDir);
+        assertEquals(true, subject.uniqueAttachIds());
+        for (Product product : subject.getProducts()) {
+            List<IU> includes = product.getIncludes();
+            if (includes != null && !includes.isEmpty()) {
+                IU iu = includes.get(0);
+                assertEquals("product.id.4", iu.getId());
+                assertEquals("1.2.3", iu.getVersion());
+            }
+        }
+    }
+
+    @Test
     public void testDuplicateAttachId() throws Exception {
         new File(tempDir, "product.id.1").mkdirs();
         new File(tempDir, "product.id.2").mkdirs();
