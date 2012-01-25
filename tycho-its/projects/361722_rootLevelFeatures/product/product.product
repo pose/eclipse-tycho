@@ -4,8 +4,10 @@
 <product uid="product" id="product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="false">
 
    <features>
+   <!--
       <feature id="feature" version="1.0.0.qualifier"/>
       <feature id="feature2" version="1.0.0.qualifier"/>
+      -->
    </features>
 
 </product>

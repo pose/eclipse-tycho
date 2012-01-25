@@ -21,7 +21,7 @@ public class RootLevelFeaturesTest extends AbstractTychoIntegrationTest {
 
     @Test
     public void test() throws Exception {
-        Verifier verifier = getVerifier("/361722_root_level_features", false);
+        Verifier verifier = getVerifier("/361722_rootLevelFeatures", false);
         verifier.getCliOptions().add("-De342-repo=" + ResourceUtil.P2Repositories.ECLIPSE_342.toString());
         verifier.executeGoals(Arrays.asList("clean", "install"));
         verifier.verifyErrorFreeLog();
