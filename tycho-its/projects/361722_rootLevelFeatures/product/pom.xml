@@ -39,14 +39,12 @@
 							<id>product</id>
 							<includes>
 								<include>
-									<iu>
-										<id>feature.feature.group</id>
-										<version>1.2.3</version>
-									</iu>
-									<iu>
-										<id>feature2.feature.group</id>
-										<version>1.2.3.4</version>
-									</iu>
+									<id>feature.feature.group</id>
+									<version>1.2.3</version>
+								</include>
+								<include>
+									<id>feature2.feature.group</id>
+									<version>1.2.3.4</version>
 								</include>
 							</includes>
 						</product>

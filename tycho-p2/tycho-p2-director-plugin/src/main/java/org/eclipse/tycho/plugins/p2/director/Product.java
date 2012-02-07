@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.tycho.plugins.p2.director;
 
-import java.util.List;
 
 /**
  * Value object for the configuration of this Maven plug-in. Used to select products to be
@@ -37,9 +36,9 @@ public final class Product {
     private String rootFolder;
 
     /**
-     * IUs to add after the first director call.
+     * @optional
      */
-    private List<IU> includes;
+    private IU[] includes;
 
     public Product() {
     }
@@ -53,7 +52,7 @@ public final class Product {
         this.attachId = attachId;
     }
 
-    Product(String id, String attachId, List<IU> includes) {
+    Product(String id, String attachId, IU[] includes) {
         this(id, attachId);
         this.includes = includes;
     }
@@ -70,8 +69,7 @@ public final class Product {
         return rootFolder;
     }
 
-    public List<IU> getIncludes()
-    {
+    public IU[] getIncludes() {
         return includes;
     }
 

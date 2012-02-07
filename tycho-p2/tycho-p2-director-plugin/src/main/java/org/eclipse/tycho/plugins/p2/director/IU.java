@@ -1,5 +1,3 @@
-package org.eclipse.tycho.plugins.p2.director;
-
 /*******************************************************************************
  * Copyright (c) 2010, 2011 SAP AG and others.
  * All rights reserved. This program and the accompanying materials
@@ -9,26 +7,27 @@ package org.eclipse.tycho.plugins.p2.director;
  *
  * Contributors:
  *     SAP AG - initial API and implementation
- *     Sonatype Inc. - ongoing development
  *******************************************************************************/
-public class IU
-{
+package org.eclipse.tycho.plugins.p2.director;
+
+public final class IU {
     private String id;
 
     private String version;
+
+    public IU() {
+    }
 
     IU(String id, String version) {
         this.id = id;
         this.version = version;
     }
 
-    public String getVersion()
-    {
+    public String getVersion() {
         return version;
     }
 
-    public String getId()
-    {
+    public String getId() {
         return id;
     }
 }

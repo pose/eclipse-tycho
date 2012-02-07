@@ -81,7 +81,7 @@ public final class DirectorMojo extends AbstractProductMojo {
                 /*
                  * Install the rest of the product associated UIs (if they have been specified)
                  */
-                List<IU> includes = product.getIncludes();
+                IU[] includes = product.getIncludes();
                 if (includes != null) {
                     for (IU iu : includes) {
                         args = new String[] { "-repository", artifactRepositoryURLs, "-installIU", iu.getId(),
